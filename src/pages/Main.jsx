@@ -795,11 +795,11 @@ const Main = props => {
               style={{ position: "absolute" }}
             >
               <div className="container">
-                <div className="plate" style={{ fontSize: (2 * props.scale).toString() + "rem" }}>
-                  <div className="inner-plate" style={{ fontSize: (1 * props.scale).toString() + "rem" }} />
+                <div className="plate">
+                  <div className="inner-plate" />
                 </div>
                 {!foodEaten ?
-                  <div className="food-on-plate" style={{ fontSize: (4 * props.scale).toString() + "rem" }}>
+                  <div className="food-on-plate" style={{ fontSize: (5.5 * props.scale).toString() + "rem" }}>
                     {currentFood}
                   </div>
                 : ""}
@@ -817,9 +817,9 @@ const Main = props => {
               style={{ position: "absolute" }}
             >
               <div className="food-menu" style={{
-                  width: (6 * props.scale).toString() + "rem",
-                  height: (12 * props.scale).toString() + "rem",
-                  transform: `translate(calc(${props.scale} * -25%), -105%)`
+                  width: (10 * props.scale).toString() + "rem",
+                  height: (20 * props.scale).toString() + "rem",
+                  transform: `translate(calc(${props.scale} * -50%), -105%)`
                 }}>
                 {[...Array(food.length).keys()].map(e =>
                   <FoodMenuItem

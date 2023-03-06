@@ -1,9 +1,10 @@
 import './FoodMenuItem.css'
 import useSound from "use-sound";
 import delay from "delay";
+import eatingSound from "../../assets/sounds/eating.mp3"
 
 const FoodMenuItem = props => {
-  const [playEatingSound] = useSound("/src/assets/sounds/eating.mp3");
+  const [playEatingSound] = useSound(eatingSound);
 
   const handleClick = async () => {
     if (props.actionPending === "none") {
@@ -69,7 +70,7 @@ const FoodMenuItem = props => {
   };
 
   return (
-    <button className="food-menu-item" style={{ fontSize: (2.5 * props.scale).toString() + "rem" }} onClick={handleClick}>
+    <button className="food-menu-item" style={{ fontSize: (5 * props.scale).toString() + "rem" }} onClick={handleClick}>
       {props.food[props.foodId]}
     </button>
   );

@@ -13,6 +13,7 @@
   top: 0;
   right: 0;
   transform: translate(50%, -40%);
+  scale: 1.5;
 }
 
 .bubble > span {
@@ -22,7 +23,7 @@
 
 @media (max-width: 900px) {
   .bubble {
-    scale: 1.3;
+    scale: 1.5;
   }
 
   .bubble > span {

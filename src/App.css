@@ -61,7 +61,7 @@
 .stats-container {
   position: absolute;
   left: 0;
-  transform: translate(calc(max(34vw, 60vh)), 4vh);
+  transform: translate(calc(max(38vw, 60vh)), 4vh);
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
@@ -93,7 +93,7 @@
   box-shadow: 2px 2px 8px 2px hsla(0, 0%, 0%, 0.2);
   padding: 30px;
   transform: rotateX(70deg);
-  scale: 1.5;
+  scale: 1;
 }
 
 .inner-plate {
@@ -266,8 +266,8 @@ div.stat {
 
 .close-button {
   position: relative;
-  width: calc(max(6vh, 3vw));
-  height: calc(max(6vh, 3vw));
+  width: 10vh;
+  height: 10vh;
   float: right;
   border: 3px solid var(--color-brown);
   border-radius: 50%;
@@ -277,8 +277,8 @@ div.stat {
 }
 
 .xd {
-  height: 12%;
-  width: 18%;
+  height: 13%;
+  width: 20%;
 }
 
 .close-button:hover {
@@ -398,8 +398,8 @@ div.stat {
 
 @media (max-width: 900px) {
   .close-button {
-    width: 11vh;
-    height: 11vh;
+    width: 10vh;
+    height: 10vh;
   }
   
   .header__h1, .header__p, .stat {
