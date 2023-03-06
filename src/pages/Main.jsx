@@ -1007,7 +1007,7 @@ const Main = props => {
                         display: "flex",
                         justifyContent: "center",
                         alignItems: "center",
-                        fontSize: (1.5 * props.scale).toString() + "rem",
+                        fontSize: (3.8 * props.scale).toString() + "rem",
                         textDecoration: "none",
                         fontFamily: "sans-serif",
                         cursor: "pointer"
@@ -1044,7 +1044,7 @@ const Main = props => {
                         display: "flex",
                         justifyContent: "center",
                         alignItems: "center",
-                        fontSize: (1.5 * props.scale).toString() + "rem",
+                        fontSize: (3.8 * props.scale).toString() + "rem",
                         textDecoration: "none",
                         fontFamily: "sans-serif"
                       }}
