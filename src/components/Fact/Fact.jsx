@@ -28,14 +28,15 @@ const Fact = props => {
             fontFamily: "sans-serif"
           }}
           onClick={() => {
-            let lmao = props.todayFacts.slice();
-            let lmao2 = props.facts.slice();
+            let lmao = JSON.parse(JSON.stringify(props.todayFacts));
+            let lmao2 = JSON.parse(JSON.stringify(props.facts));
             let idx = props.facts.map(e => JSON.stringify(e)).indexOf(JSON.stringify(lmao[props.id - 1]));
             lmao[props.id - 1].saved = !lmao[props.id - 1].saved;
             
             if (idx > -1) {
               lmao2[idx].saved = !lmao2[idx].saved;
             }
+            console.log(lmao[props.id - 1].saved);
             
             props.setTodayFacts(lmao);
             props.setFacts(lmao2);

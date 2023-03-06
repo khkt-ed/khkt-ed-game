@@ -81,8 +81,8 @@ const Quiz = props => {
                     textDecoration: "none"
                   }}
                   onClick={() => {
-                    let lmao = props.todayQuizzes.slice();
-                    let lmao2 = props.quizzes.slice();
+                    let lmao = JSON.parse(JSON.stringify(props.todayQuizzes));
+                    let lmao2 = JSON.parse(JSON.stringify(props.quizzes));
                     let idx = props.quizzes.map(e => JSON.stringify(e)).indexOf(JSON.stringify(lmao[props.id - 1]));
                     lmao[props.id - 1].saved = !lmao[props.id - 1].saved;
 
