@@ -782,8 +782,8 @@ const Main = props => {
     <div className="main-container" style={{ backgroundColor: lmaoOpen || savedOpen ? "dimgrey" : "" }}>
       <div className="game-container" style={{ gap: (1 * props.scale).toString() + "rem" }}>
         <div className="header">
-          <h1 className="header__h1" style={{ fontSize: (3 * props.scale).toString() + "rem" }}>Virtual Pet!</h1>
-          <p className="header__p" style={{ fontSize: (1.2 * props.scale).toString() + "rem" }}>Welcome to your personal Pet!</p>
+          <h1 className="header__h1" style={{ fontSize: (3.8 * props.scale).toString() + "rem" }}>Virtual Pet!</h1>
+          <p className="header__p" style={{ fontSize: (1.8 * props.scale).toString() + "rem" }}>Welcome to your personal Pet!</p>
         </div>
         <div className="pet-container" >
           <img className="pet-img" src={PetImg} />
@@ -853,14 +853,14 @@ const Main = props => {
               </div>
             </motion.div>
           : ""}
-          <button className="pet-action-button feed-button" style={{ fontSize: (1.2 * props.scale).toString() + "rem" }} onClick={() => {
+          <button className="pet-action-button feed-button" style={{ fontSize: (1.8 * props.scale).toString() + "rem" }} onClick={() => {
             if (actionPending === "none" || foodMenuOpened) {
               setFoodMenuOpened(!foodMenuOpened);
             }
           }}>
             Feed
           </button>
-          <button className="pet-action-button play-button" style={{ fontSize: (1.2 * props.scale).toString() + "rem" }} onClick={async e => {
+          <button className="pet-action-button play-button" style={{ fontSize: (1.8 * props.scale).toString() + "rem" }} onClick={async e => {
             if (actionPending === "none") {
               setActionPending("play");
               setABtnUnavailable();
@@ -889,7 +889,7 @@ const Main = props => {
           </button>
           <button
             className={"pet-action-button daily-button" + (todayQuizzes.filter(e => e.selected !== -1).length < todayQuizzes.length ? " unfinished" : "")}
-            style={{ marginLeft: "auto", fontSize: (1.2 * props.scale).toString() + "rem"}}
+            style={{ marginLeft: "auto", fontSize: (1.8 * props.scale).toString() + "rem"}}
             onClick={(event) => {
               if (!savedOpen) {
                 setLmaoOpen(true);
@@ -900,7 +900,7 @@ const Main = props => {
           >
             Daily
           </button>
-          <button className="pet-action-button saved-button" style={{ fontSize: (1.2 * props.scale).toString() + "rem" }} 
+          <button className="pet-action-button saved-button" style={{ fontSize: (1.8 * props.scale).toString() + "rem" }} 
             onClick={event => {
               if (!lmaoOpen) {
                 setSavedOpen(true);
@@ -914,7 +914,7 @@ const Main = props => {
         </div>
         <div className="stats-container">
           <div className="stat">
-            <p style={{ fontSize: (1.2 * props.scale).toString() + "rem" }}>
+            <p style={{ fontSize: (1.8 * props.scale).toString() + "rem" }}>
               {"Food: "}
               {Array(hunger).fill().map((_, i) => {
                 return <span key={i} className="sex">🍖</span>;
@@ -922,7 +922,7 @@ const Main = props => {
             </p>
           </div>
           <div className="stat">
-            <p style={{ fontSize: (1.2 * props.scale).toString() + "rem" }}>
+            <p style={{ fontSize: (1.8 * props.scale).toString() + "rem" }}>
               {"Happy: "}
               {Array(happiness).fill().map((_, i) => {
                 return <span key={i} className="sex">😜</span>;
