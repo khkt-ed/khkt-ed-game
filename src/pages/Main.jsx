@@ -5,7 +5,8 @@ import FoodMenuItem from "../components/FoodMenuItem/FoodMenuItem";
 import Book from "../components/Book/Book";
 import delay from "delay";
 import Bubble from "../components/Bubble/Bubble";
-import Img from "../assets/images/messy library.jpg"
+import PetImg from "../assets/images/young-kiwi.png"
+import MessyLibraryImg from "../assets/images/messy library.jpg"
 
 const food = ["🍌", "🍇", "🥕", "🍈", "🍉", "🍊", "🍎", "🍐", "🥒", "🥬"];
 
@@ -41,7 +42,6 @@ const useIsMount = () => {
 };
 
 const Main = props => {
-  console.log(Img);
   const isMount = useIsMount();
 
   const [hunger, setHunger] = useLocalStorage({ key: "hunger", defaultValue: 5 });
@@ -302,7 +302,7 @@ const Main = props => {
       href: "http://eatingdisorderscoalition.org.s208556.gridserver.com/couch/uploads/file/fact-sheet_2016.pdf",
       saved: false,
       used: true,
-      fontSize: 1.5
+      fontSize: 1.4
     },
     {
       statement: "In the US, eating disorder research is the least funded of all mental illness research. In 2018, the US Department of Health & Human Services spent $38 million researching eating disorders, compared to $213 million researching anxiety disorders and $500 million researching depression.",
@@ -786,7 +786,7 @@ const Main = props => {
           <p className="header__p" style={{ fontSize: (1.2 * props.scale).toString() + "rem" }}>Welcome to your personal Pet!</p>
         </div>
         <div className="pet-container" >
-          <img className="pet-img" src="/src/assets/images/young-kiwi.png" />
+          <img className="pet-img" src={PetImg} />
           {actionPending === "feed" ?
             <motion.div
               initial={{ y: 150 }}
@@ -936,7 +936,7 @@ const Main = props => {
           className="book-container"
           initial={{ y: 1000 }}
           animate={{ y: 0 }}
-          style={{ backgroundImage: `url('${Img}')` }}
+          style={{ backgroundImage: `url('${MessyLibraryImg}')` }}
         >
           <motion.div
             animate={open ? "open" : "closed"}
