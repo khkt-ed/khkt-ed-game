@@ -992,10 +992,10 @@ const Main = props => {
                   <div className="bruhhh" style={{ marginBottom: "2%" }}>{selected === "facts" ? element.statement : element.question + " (" + element.choices[element.answer] + ")"}</div>
                   <div className="i-give-up" style={{
                     position: "relative",
-                    left: "85%",
+                    left: "78%",
                     display: "flex",
-                    height: "25%",
-                    width: "25%",
+                    height: "20%",
+                    width: "20%",
                     justifyContent: "space-around",
                     alignItems: "center",
                     backgroundColor: "#ccc",
@@ -1007,7 +1007,7 @@ const Main = props => {
                         display: "flex",
                         justifyContent: "center",
                         alignItems: "center",
-                        fontSize: (3.8 * props.scale).toString() + "rem",
+                        fontSize: (2.5 * props.scale).toString() + "rem",
                         textDecoration: "none",
                         fontFamily: "sans-serif",
                         cursor: "pointer"
@@ -1044,7 +1044,7 @@ const Main = props => {
                         display: "flex",
                         justifyContent: "center",
                         alignItems: "center",
-                        fontSize: (3.8 * props.scale).toString() + "rem",
+                        fontSize: (2.5 * props.scale).toString() + "rem",
                         textDecoration: "none",
                         fontFamily: "sans-serif"
                       }}

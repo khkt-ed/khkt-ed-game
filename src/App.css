@@ -393,7 +393,7 @@ div.stat {
 }
 
 .bruhhh {
-  font-size: 0rem;
+  font-size: 0.7rem;
 }
 
 @media (max-width: 900px) {
@@ -423,7 +423,7 @@ div.stat {
   }
 
   .bruhhh {
-    font-size: 1rem;
+    font-size: 0.7rem;
   }
 
   .plate {
