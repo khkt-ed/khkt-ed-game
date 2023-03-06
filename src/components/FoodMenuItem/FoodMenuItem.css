@@ -1,0 +1,8 @@
+.food-menu-item {
+  background: none;
+  border: none;
+}
+
+.food-menu-item:hover {
+  scale: 1.2;
+}

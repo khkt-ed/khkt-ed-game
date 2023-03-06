@@ -1,0 +1,17 @@
+.fact-container {
+  background-color: transparent;
+  height: 50%;
+  padding-top: 5%;
+  position: relative;
+}
+
+.fact-number {
+  color: var(--color-brown);
+  border-bottom: 1px solid #ccc;
+  height: 15%;
+}
+
+.statement {
+  color: black;
+  margin-top: 5%;
+}

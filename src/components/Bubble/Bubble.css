@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Pacifico&display=swap');
+
+.bubble { 
+	text-align: center;
+	height: 0;
+	box-sizing: content-box;
+	line-height: 1;
+  background: url(/src/assets/images/speech-bubble.svg); 
+  width: 60%;
+  padding-top: 10%;
+	padding-bottom: 30%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(50%, -40%);
+}
+
+.bubble > span {
+  display: inline-block;
+  animation: content-alternate 500ms steps(2, jump-none) infinite;
+}
+
+@media (max-width: 900px) {
+  .bubble {
+    scale: 1.3;
+  }
+
+  .bubble > span {
+    scale: 1.1;
+  }
+}
+
+@keyframes content-alternate {
+  from {
+    transform: rotate(-2deg);
+  }
+  to {
+    transform: rotate(2deg);
+  }
+}
