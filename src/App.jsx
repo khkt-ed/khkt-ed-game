@@ -4,7 +4,7 @@ import Main from './pages/Main';
 
 function App() {
   const [width, setWidth] = useState(window.innerWidth);
-  const [scale, setScale] = useState(0.6);
+  const [scale, setScale] = useState(0.5);
 
   useEffect(() => {
     window.addEventListener("resize", () => setWidth(window.innerWidth));
