@@ -5,6 +5,7 @@ import FoodMenuItem from "../components/FoodMenuItem/FoodMenuItem";
 import Book from "../components/Book/Book";
 import delay from "delay";
 import Bubble from "../components/Bubble/Bubble";
+import Img from "../assets/images/messy library.jpg"
 
 const food = ["🍌", "🍇", "🥕", "🍈", "🍉", "🍊", "🍎", "🍐", "🥒", "🥬"];
 
@@ -40,6 +41,7 @@ const useIsMount = () => {
 };
 
 const Main = props => {
+  console.log(Img);
   const isMount = useIsMount();
 
   const [hunger, setHunger] = useLocalStorage({ key: "hunger", defaultValue: 5 });
@@ -934,6 +936,7 @@ const Main = props => {
           className="book-container"
           initial={{ y: 1000 }}
           animate={{ y: 0 }}
+          style={{ backgroundImage: `url('${Img}')` }}
         >
           <motion.div
             animate={open ? "open" : "closed"}
