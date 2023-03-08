@@ -691,8 +691,8 @@ const Main = props => {
     const interval = setInterval(() => {
       const now = Date.now();
       const diff = now - time, diff2 = now - time2;
-      const hungerThreshold = 1.5 * hour, happinessThreshold = 1 * hour;
-      // const hungerThreshold = 1000, happinessThreshold = 1000;
+      // const hungerThreshold = 1.5 * hour, happinessThreshold = 1 * hour;
+      const hungerThreshold = 1000, happinessThreshold = 1000;
 
       if (diff > hungerThreshold) {
         if (hunger > 0) {
