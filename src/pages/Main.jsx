@@ -13,7 +13,7 @@ const food = ["🍌", "🍇", "🥕", "🍈", "🍉", "🍊", "🍎", "🍐", "�
 const hour = 36e5;
 
 const criticalThreshold = 24 * hour;
-const criticalDelay = 1.5 * hour;
+const criticalDelay = 1 * hour;
 
 const variants = {
   open: { x: 0, y: "-50%" },
@@ -665,9 +665,9 @@ const Main = props => {
     });
   };
 
-  const [time, setTime] = useLocalStorage({ key: "time", defaultValue: Date.now() });
-  const [time2, setTime2] = useLocalStorage({ key: "time2", defaultValue: Date.now() });
-  const [time3, setTime3] = useLocalStorage({ key: "time3", defaultValue: Date.now() });
+  const [time, setTime] = useLocalStorage({ key: "time" });
+  const [time2, setTime2] = useLocalStorage({ key: "time2" });
+  const [time3, setTime3] = useLocalStorage({ key: "time3" });
   const [time4, setTime4] = useLocalStorage({ key: "time4" });
   const [time5, setTime5] = useLocalStorage({ key: "time5" });
 
@@ -680,31 +680,39 @@ const Main = props => {
     defaultValue: facts.slice(0, 4)
   });
 
-  const [bubbleOpen, setBubbleOpen] = useLocalStorage({ key: "bubble-open", defaultValue: false });
-  const [bubbleContent, setBubbleContent] = useLocalStorage({ key: "bubble-content", defaultValue: "" });
+  const [bubbleOpen, setBubbleOpen] = useState(false);
+  const [bubbleContent, setBubbleContent] = useState("");
   const [critical, setCritical] = useLocalStorage({ key: "critital", defaultValue: false });
   const [ngulon, setNgulon] = useLocalStorage({ key: "ngulon", defaultValue: true });
   const [eatenYet, setEatenYet] = useLocalStorage({ key: "eaten-yet", defaultValue: false });
   const [ditmemay, setDitmemay] = useLocalStorage({ key: "ditmemay", defaultValue: 0 });
 
   useEffect(() => {
+    const now = Date.now();
+    if (!localStorage.getItem("time")) {
+      setTime(now);
+    }
+    if (!localStorage.getItem("time2")) {
+      setTime2(now);
+    }
+    if (!localStorage.getItem("time3")) {
+      setTime3(now);
+    }
+  }, []);
+
+  useEffect(() => {
     const interval = setInterval(() => {
       const now = Date.now();
       const diff = now - time, diff2 = now - time2;
-      const hungerThreshold = 1.5 * hour, happinessThreshold = 1 * hour;
-      // const hungerThreshold = 1000, happinessThreshold = 1000;
-
+      const hungerThreshold = 1.5 * hour, happinessThreshold = hour;
+      // const hungerThreshold = 10000, happinessThreshold = 10000;
       if (diff > hungerThreshold) {
-        if (hunger > 0) {
-          setHunger(Math.max(hunger - Math.floor(diff / hungerThreshold), 0));
-        }
+        setHunger(Math.max(hunger - Math.floor(diff / hungerThreshold), 0));
         setTime(now);
       }
 
       if (diff2 > happinessThreshold) {
-        if (happiness > 0) {
-          setHappiness(Math.max(happiness - Math.floor(diff2 / happinessThreshold), 0));
-        }
+        setHappiness(Math.max(happiness - Math.floor(diff2 / happinessThreshold), 0));
         setTime2(now);
       }
 
@@ -721,6 +729,32 @@ const Main = props => {
         const diff4 = now - time5;
         if (diff4 > criticalDelay) {
           setEatenYet(false);
+        }
+      }
+      
+      if (actionPending === "none") {
+        if (hunger === 0 || happiness === 0) {
+          const now = Date.now();
+          if (hunger === 0 && happiness === 0) {
+            setBubbleContent("You forgot about me...");
+            if (ngulon) {
+              setTime4(now);
+              setNgulon(false);
+            }
+          }
+          else {
+            if (hunger === 0) {
+              setBubbleContent("I'm hungry...");
+              if (ngulon) {
+                setTime4(now);
+                setNgulon(false);
+              }
+            }
+            else if (happiness === 0) {
+              setBubbleContent("I need to play...");
+              setBubbleOpen(true);
+            }
+          }
         }
       }
 
@@ -748,35 +782,23 @@ const Main = props => {
   });
 
   useEffect(() => {
-    if (actionPending === "none" && !isMount) {
-      if (hunger === 0 || happiness === 0) {
-        const now = Date.now();
-        if (hunger === 0 && happiness === 0) {
-          setBubbleContent("You forgot about me...");
-          if (ngulon) {
-            setTime4(now);
-            setNgulon(false);
-          }
-        }
-        else if (hunger === 0) {
-          setBubbleContent("I'm hungry...");
-          if (ngulon) {
-            setTime4(now);
-            setNgulon(false);
-          }
-        }
-        else if (happiness === 0) {
-          setBubbleContent("I need to play...");
-        }
-        if (!bubbleOpen) {
-          setBubbleOpen(true);
-        }
-      }
-      else if (bubbleOpen) {
+    if (bubbleContent !== "") {
+      setBubbleOpen(true);
+    }
+  }, [bubbleContent]);
+
+  useEffect(() => {
+    if (actionPending === "none") {
+      setBubbleOpen(false);
+      setBubbleContent("");
+    }
+    else {
+      if (bubbleContent !== "" && bubbleContent !== "I shouldn't eat more...") {
         setBubbleOpen(false);
+        setBubbleContent("");
       }
     }
-  }, [hunger, happiness, bubbleOpen]);
+  }, [actionPending])
   
   return (
     <div className="main-container" style={{ backgroundColor: lmaoOpen || savedOpen ? "dimgrey" : "" }}>
@@ -868,20 +890,15 @@ const Main = props => {
 
               if (happiness >= 5) {
                 setBubbleContent("I'm already happy...");
-                setBubbleOpen(true);
                 await delay(3000);
                 setABtnAvailable();
                 setActionPending("none");
-                setBubbleOpen(false);
                 return;
               }
-
-              setBubbleOpen(false);
 
               await delay(3000);
               setABtnAvailable();
               setActionPending("none");
-              setBubbleOpen(true);
               setHappiness(5);
             }
           }}>

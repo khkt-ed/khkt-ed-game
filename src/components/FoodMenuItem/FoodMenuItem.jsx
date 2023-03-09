@@ -24,17 +24,14 @@ const FoodMenuItem = props => {
         else if (props.hunger >= 5) {
           props.setBubbleContent("I'm too full...");
         }
-        props.setBubbleOpen(true);
         await delay(3000);
         props.setABtnAvailable();
         props.setActionPending("none");
-        props.setBubbleOpen(false);
         return;
       }
       
       props.setActionPending("feed");
       props.setCurrentFood(props.food[props.foodId]);
-      props.setBubbleOpen(false);
       
       await delay(1000);
       playEatingSound();
@@ -49,7 +46,6 @@ const FoodMenuItem = props => {
       props.setEatenYet(true);
       props.setTime5(Date.now());
       props.setNgulon(true);
-      props.setBubbleOpen(true);
       props.setHunger(Math.min(props.hunger + 2, 5));
 
       if (props.time4 !== undefined) {
@@ -58,6 +54,7 @@ const FoodMenuItem = props => {
 
       if (props.critical) {
         if (props.ditmemay < 2) {
+          console.log("fa");
           props.setDitmemay(props.ditmemay + 1);
         }
         else {
