@@ -705,7 +705,7 @@ const Main = props => {
       const now = Date.now();
       const diff = now - time, diff2 = now - time2;
       const hungerThreshold = 1.5 * hour, happinessThreshold = hour;
-      // const hungerThreshold = 10000, happinessThreshold = 10000;
+      // const hungerThreshold = 1000, happinessThreshold = 1000;
       if (diff > hungerThreshold) {
         setHunger(Math.max(hunger - Math.floor(diff / hungerThreshold), 0));
         setTime(now);
@@ -793,7 +793,7 @@ const Main = props => {
       setBubbleContent("");
     }
     else {
-      if (bubbleContent !== "" && bubbleContent !== "I shouldn't eat more...") {
+      if (bubbleContent !== "" && bubbleContent !== "I shouldn't eat more..." && bubbleContent !== "I'm too full..." && bubbleContent !== "I'm already happy...") {
         setBubbleOpen(false);
         setBubbleContent("");
       }
