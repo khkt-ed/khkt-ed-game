@@ -793,7 +793,7 @@ const Main = props => {
       setBubbleContent("");
     }
     else {
-      if (bubbleContent !== "" && bubbleContent !== "I'm full..." && bubbleContent !== "I'm too full..." && bubbleContent !== "I'm already happy...") {
+      if (bubbleContent !== "" && bubbleContent !== "I'm satisfied..." && bubbleContent !== "I'm too full..." && bubbleContent !== "I'm already happy...") {
         setBubbleOpen(false);
         setBubbleContent("");
       }

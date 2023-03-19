@@ -19,7 +19,7 @@ const FoodMenuItem = props => {
           break sheesh;
         }
         if (props.critical) {
-          props.setBubbleContent("I shouldn't eat more...");
+          props.setBubbleContent("I'm satisfied...");
         }
         else if (props.hunger >= 5) {
           props.setBubbleContent("I'm too full...");
